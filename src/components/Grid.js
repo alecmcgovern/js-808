@@ -5,13 +5,9 @@ import { Drums } from '../Drums'
 import './Grid.css';
 
 class Grid extends Component {
-  constructor(props) {
-    super(props);
-
-  }
   render() {
-    const { length, playhead, sequence, toggleBeat, setPlayhead } = this.props;
-
+    const { length, playhead, sequence, toggleBeat, setPlayhead, playing } = this.props;
+    
     return (
       <div className="grid">
         <div className="instrument-names">
@@ -27,6 +23,7 @@ class Grid extends Component {
                       key={i}
                       playhead={playhead}
                       beatNumber={i}
+                      playing={playing}
                       sequence={sequence}
                       className={playhead === i ? "column active" : "column"}
                       toggleBeat={(bt, inst) => toggleBeat(bt, inst)}

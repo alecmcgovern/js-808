@@ -6,7 +6,6 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  justify-content: center;
 }
 
 .container {
@@ -17,4 +16,8 @@
 
 .container.large {
 	min-width: 1400px;
+}
+
+.title {
+  margin-top: 150px;
 }

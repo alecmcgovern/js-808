@@ -8,14 +8,11 @@
 }
 
 .instrument-names {
-/*	position: absolute;
-	left: 0;*/
 	height: 100%;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
-	/*transform: translateX(-110%);*/
-	padding-top: 20px;
+	padding-top: 25px;
 	box-sizing: border-box;
 }
 

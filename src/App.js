@@ -7,7 +7,7 @@ import { Sequences } from './Sequences';
 import './App.css';
 
 const STARTING_LENGTH = 16;
-const STARTING_TEMPO = 128;
+const STARTING_TEMPO = 80;
 
 class App extends Component {
   constructor() {
@@ -20,11 +20,10 @@ class App extends Component {
     })
 
     this.state = {
-      tempo: 128,
+      tempo: STARTING_TEMPO,
       length: STARTING_LENGTH,
       playhead: 0,
       playing: false,
-      // sequence: emptySequence,
       sequence: Sequences[0].data
     }
   }
@@ -40,7 +39,10 @@ class App extends Component {
       this.setState({ playing: false })
     } else {
       this.setState({ playing: true })
-      this.playBeat()
+
+      setTimeout(() => {
+        this.playBeat()
+      }, 60000/(this.state.tempo*4))
     }
   }
 
@@ -57,7 +59,6 @@ class App extends Component {
   }
 
   setSequence(sequence) {
-    console.log(sequence);
     if (sequence) {
       this.setState({
         sequence
@@ -84,22 +85,41 @@ class App extends Component {
     })
   }
 
+  setLength(l) {
+    const { sequence } = this.state;
+
+    let newSequence = sequence;
+
+    if (sequence.kick.length < l) {
+      Object.keys(sequence).forEach((key) => {
+        const fill = new Array(l - sequence[key].length).fill(0);
+        newSequence[key] = sequence[key].concat(fill);
+      })
+    }
+    this.setState({
+      sequence: newSequence,
+      length: l
+    })
+  }
+
   render() {
     const { length, playing, playhead, sequence } = this.state;
 
     return (
       <div className="App">
+        <h1 className="title">JS 808</h1>
         <div className={length > 16 ? "container large" : "container"}>
           <Controls 
             playing={playing}
             playPause={() => this.playPause()}
             setTempo={(tempo) => this.setState({tempo})}
             setSequence={(sequence) => this.setSequence(sequence)}
-            setLength={(length) => this.setState({length})}
+            setLength={(length) => this.setLength(length)}
           />
           <Grid 
             length={length}
             playhead={playhead}
+            playing={playing}
             sequence={sequence}
             setPlayhead={(playhead) => this.setState({playhead})}
             toggleBeat={(bt, inst) => this.toggleBeat(bt, inst)}

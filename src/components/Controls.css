@@ -7,6 +7,9 @@
     margin-bottom: 5px;
 }
 
+.dropdown-container {
+    display: flex;
+}
 
 .play-pause-outer {
     width: 50px;

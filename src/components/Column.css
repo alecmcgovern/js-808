@@ -12,6 +12,8 @@
 	border: 1px solid rgba(0,0,0,0);
 
 	cursor: pointer;
+	border-radius: 5px;
+	margin-bottom: 5px;
 }
 
 .beat-number:hover {

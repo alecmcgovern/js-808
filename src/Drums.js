@@ -5,7 +5,7 @@ import cymbal from './audio/cymbal.mp3';
 
 export const Drums = {
 	hihat: new Audio(hihat),
-	kick: new Audio(kick),
+	cymbal: new Audio(cymbal),
 	snare: new Audio(snare),
-	cymbal: new Audio(cymbal)
+	kick: new Audio(kick),
 }

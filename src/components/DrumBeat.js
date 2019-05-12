@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import './DrumBeat.css';
 
 class Column extends Component {
-  constructor() {
-    super();
-  }
-
   componentDidUpdate(prevProps) {
-    const { playhead, sound, active, beatNumber } = this.props;
-    if (prevProps.playhead !== playhead && playhead === beatNumber && active) {
+    const { playhead, sound, active, beatNumber, playing } = this.props;
+    if ((prevProps.playhead !== playhead || prevProps.playing !== playing)
+        && playhead === beatNumber 
+        && active && playing) {
       sound.currentTime = 0;
       sound.play();
     }
   }
 
   toggleBeat(beatNumber, instrument, sound) {
-    sound.currentTime = 0;
-    sound.play();
+    if (!this.props.active) {
+      sound.currentTime = 0;
+      sound.play();
+    }
 
     this.props.toggleBeat(beatNumber, instrument)
   }
@@ -30,7 +30,7 @@ class Column extends Component {
       drumBeatClass += " highlight";
     }
     return <div className={drumBeatClass} onClick={() => this.toggleBeat(beatNumber, instrument, sound)}>
-              {active ? "•" : ""}
+              {active ? <div className="active-indicator"></div> : ""}
       </div>
   }
 }

@@ -1,6 +1,7 @@
 .dropdown {
     font-size: 1.2em;
     font-weight: 600;
+    position: relative;
 }
 
 .dropdown div {
@@ -8,13 +9,18 @@
 }
 
 .dropdown > div:first-of-type, .dropdown .dropdown-item {
-    padding: 5px;
+    padding: 5px 10px;
+    white-space: nowrap;
     background-color: #16161d;
+
 }
 
 .dropdown .dropdown-items {
     border: 1px solid #ccc;
+    right: 0;
     z-index: 10;
+    max-height: 200px;
+    overflow: auto;
     position: absolute;
     -webkit-box-shadow: -1px 6px 10px 0px rgba(255,255,255,0.1);
     -moz-box-shadow: -1px 6px 10px 0px rgba(255,255,255,0.1);

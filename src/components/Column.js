@@ -5,16 +5,12 @@ import { Drums } from '../Drums';
 import './Column.css';
 
 class Column extends Component {
-  constructor() {
-    super();
-  }
-
   setSample(drum, audio) {
     audio.play();
   }
 
   render() {
-    const { length, playhead, beatNumber, sequence, toggleBeat, setPlayhead } = this.props;
+    const { playhead, beatNumber, sequence, toggleBeat, setPlayhead, playing } = this.props;
     return (
       <div className={playhead === beatNumber ? "column active" : "column"}>
         <div className="beat-number" onClick={() => setPlayhead(beatNumber)}>{beatNumber + 1}</div>
@@ -26,6 +22,7 @@ class Column extends Component {
               active={sequence[key][beatNumber] === 1}
               instrument={key}
               sound={value}
+              playing={playing}
               playhead={playhead}
               toggleBeat={(bt, inst) => toggleBeat(bt, inst)}
             />

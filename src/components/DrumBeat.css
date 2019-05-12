@@ -8,14 +8,26 @@
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border-radius: 8px;
 }
 
 .drum-beat:hover {
-	background-color: rgba(255,255,255,0.5);
+	background-color: rgba(255,255,255,0.3);
 }
 
 .drum-beat.highlight {
 	background-color: rgba(255,0,0,0.4);
 	color: red;
 	border-color: red;
+}
+
+.active-indicator {
+	width: 25%;
+	height: 25%;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.drum-beat.highlight .active-indicator {
+	background-color: red;
 }
