@@ -34,7 +34,6 @@ class App extends Component {
 
   playPause(reset) {
     if (reset) {
-      console.log("resetting")
       this.setState({ playing: false, playhead: 0 })
     } else {
       this.setState({ playing: !this.state.playing })
