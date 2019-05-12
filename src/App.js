@@ -32,17 +32,22 @@ class App extends Component {
     clearTimeout(this.timeout);
   }
 
-  playPause() {
-    this.setState({ playing: !this.state.playing })
-
-    if (this.state.playing) {
-      this.setState({ playing: false })
+  playPause(reset) {
+    if (reset) {
+      console.log("resetting")
+      this.setState({ playing: false, playhead: 0 })
     } else {
-      this.setState({ playing: true })
+      this.setState({ playing: !this.state.playing })
 
-      setTimeout(() => {
-        this.playBeat()
-      }, 60000/(this.state.tempo*4))
+      if (this.state.playing) {
+        this.setState({ playing: false })
+      } else {
+        this.setState({ playing: true })
+
+        setTimeout(() => {
+          this.playBeat()
+        }, 60000/(this.state.tempo*4))
+      }
     }
   }
 
@@ -111,7 +116,7 @@ class App extends Component {
         <div className={length > 16 ? "container large" : "container"}>
           <Controls 
             playing={playing}
-            playPause={() => this.playPause()}
+            playPause={(reset) => this.playPause(reset)}
             setTempo={(tempo) => this.setState({tempo})}
             setSequence={(sequence) => this.setSequence(sequence)}
             setLength={(length) => this.setLength(length)}

@@ -7,7 +7,18 @@
     margin-bottom: 5px;
 }
 
-.dropdown-container {
+.tracking-controls {
+    display: flex;
+    align-items: center;
+}
+
+.stop {
+    width: 14px;
+    height: 16px;
+    background-color: white;
+}
+
+.dropdown-menus {
     display: flex;
 }
 

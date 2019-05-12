@@ -32,10 +32,13 @@ class Controls extends Component {
 
     return (
       <div className="controls">
-        <div className="play-pause-outer" onClick={() => this.props.playPause()}>
-          <div className={playing ? "play-pause pause" : "play-pause"}></div>
+        <div className="tracking-controls">
+          <div className="stop" onClick={() => this.props.playPause(true)}></div>
+          <div className="play-pause-outer" onClick={() => this.props.playPause()}>
+            <div className={playing ? "play-pause pause" : "play-pause"}></div>
+          </div>
         </div>
-        <div className="dropdown-container">
+        <div className="dropdown-menus">
           <Dropdown items={bpmDropdownData} default={"80 bpm"} />
           <Dropdown items={sequenceDropdownData} default={Sequences[0].name} />
           <Dropdown items={lengthDropdownData} default={"16 beats"} />
