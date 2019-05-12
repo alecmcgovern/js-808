@@ -22,11 +22,11 @@ class Column extends Component {
   }
 
   render() {
-    const { playhead, active, sound, beatNumber, instrument } = this.props;
+    const { playhead, active, sound, beatNumber, instrument, playing } = this.props;
 
     let drumBeatClass = "drum-beat";
 
-    if (playhead === beatNumber && active) {
+    if (playhead === beatNumber && active && playing) {
       drumBeatClass += " highlight";
     }
     return <div className={drumBeatClass} onClick={() => this.toggleBeat(beatNumber, instrument, sound)}>
