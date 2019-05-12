@@ -1,0 +1,25 @@
+.column {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.beat-number {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	border: 1px solid rgba(0,0,0,0);
+
+	cursor: pointer;
+}
+
+.beat-number:hover {
+	border: 1px solid white;
+}
+
+.column.active > .beat-number {
+	color: #00fc04;
+	background-color: rgba(0, 252, 4, 0.3) ;
+	border-color: #00fc04;
+}

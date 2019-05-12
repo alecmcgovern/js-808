@@ -1,0 +1,28 @@
+.grid {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	padding: 10px 20px 40px 10px;
+	box-sizing: border-box;
+}
+
+.instrument-names {
+/*	position: absolute;
+	left: 0;*/
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	/*transform: translateX(-110%);*/
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+.instrument-names > div {
+	height: 30px;
+	margin: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}

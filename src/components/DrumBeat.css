@@ -1,0 +1,21 @@
+.drum-beat {
+	height: 30px;
+	border: 1px solid #ccc;
+	width: 30px;
+	margin: 5px 2px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.drum-beat:hover {
+	background-color: rgba(255,255,255,0.5);
+}
+
+.drum-beat.highlight {
+	background-color: rgba(255,0,0,0.4);
+	color: red;
+	border-color: red;
+}
